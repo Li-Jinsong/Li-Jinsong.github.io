@@ -1,140 +1,161 @@
 <!DOCTYPE html>
 <html>
-
+  
 <head>
-    <title>Jinsong Li (李劲松)</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
-    <link rel="stylesheet" href="https://7npmedia.w3cschool.cn/w3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="icon" href="/favicon/favicon-32x32.png" type="image/x-icon">
-    <style>
-        body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
-    </style>
-    <body class="w3-light-grey w3-content" style="max-width:1600px">
+  <title>Jinsong Li (李劲松)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://7npmedia.w3cschool.cn/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="icon" href="/favicon/favicon-32x32.png" type="image/x-icon">
+  <style>
+      body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+  </style>
 </head>
 
-<body>
+<body class="w3-light-grey w3-content" style="max-width:1600px">
 
-    <!-- Sidebar -->
-    <div class="w3-sidebar w3-black w3-bar-block w3-center" style="z-index:3;width:400px">
-        <div class="w3-container">
-            <img src="data/ljs1.jpg" style="width:65%;" class="w3-round"><br><br>
-            <h1>Jinsong Li (李劲松)</h1>
-        </div>
-        <a href="#home" class="w3-bar-item w3-button">Home</a>
-        <a href="#education" class="w3-bar-item w3-button">Education</a>
-        <a href="#publications" class="w3-bar-item w3-button">Publications</a>
-        <a href="#awards" class="w3-bar-item w3-button">Awards</a>
-        <a href="#internships" class="w3-bar-item w3-button">Internships</a>
-        <a href="#services" class="w3-bar-item w3-button">Services</a>
+  <!-- Sidebar/menu -->
+  <nav class="w3-sidebar w3-collapse w3-black w3-animate-left w3-center" style="z-index:3;width:300px;" id="mySidebar"><br>
+    <div class="w3-container">
+      <img src="data/ljs1.jpg" style="width:45%;" class="w3-round"><br><br>
+      <h2><b>Jinsong Li (李劲松)</b></h2>
+      <p>( Last update: 2023.05.09 )</p>
+    </div>
+    <div class="w3-bar-block w3-center">
+      <a href="#home" class="w3-bar-item w3-button">Home</a>
+      <a href="#education" class="w3-bar-item w3-button">Education</a>
+      <a href="#publications" class="w3-bar-item w3-button">Publications</a>
+      <a href="#awards" class="w3-bar-item w3-button">Awards</a>
+      <a href="#internships" class="w3-bar-item w3-button">Internships</a>
+      <a href="#services" class="w3-bar-item w3-button">Services</a>
+    </div>
+  </nav>
+
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+  <!-- !PAGE CONTENT! -->
+  <div class="w3-main" style="margin-left:300px">
+
+    
+    <div class="w3-container w3-card w3-white w3-margin-bottom" id="home">
+      <a href="#"><img src="data/ljs1.jpg" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+      <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+      <h2><strong>About me</strong></h2>
+      I am a junior student in School of Computer Science and Technology at Xi'an Jiaotong
+      University.
+      <br>My research focuses on ...
+      <br>Also, Feel free to drop me an Email for any form of communication or collaboration!😊
+      <br>
+      <strong><br>Email:&nbsp; <b><span style="background: #d6eef8;"><code>li01301218 [at] stu [dot] xjtu [dot] edu [dot] cn</code></span></b></strong>
+      <strong><br><a style="color: #0088cc" href="https://">Google Scholar</a> &emsp; <a style="color: #0088cc" href="https://github.com/Li-Jinsong">Github</a> &emsp; <a style="color: #0088cc" href="data/CV-EN.pdf">CV</a></strong>
+      <br><a style="color: #000000">( Last update: 2023.05.09 )</a>
+      <p></p>
     </div>
 
 
-    <!-- Page Content -->
-    <div style="margin-left:400px">
-  
+    <div class="w3-container w3-card w3-white w3-margin-bottom" id="education">
+        <h2><strong>Education</strong></h2>
+        <table width="100%" align="left" border="0" cellpadding="0">
+            <tbody></tbody>
+            <tr>
+                <td style="padding:20px" width="15%"><img src="data/XJTU.png" width="80%"></td>
+                <td width="80%">
+                    <b>Xi'an Jiaotong University</b>
+                    <br><span class="w3-text-dark-grey"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sep 2020 - </span><span class="w3-tag w3-dark-grey w3-round">Current</span>
+                    <br> B.E. in Computer Science and Technology
+                    <br> GPA: 94.3 (91.3 + 3) / 100 <strong><a style="color: #FF0000">[top 1%]</a></strong>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
-        <div class="w3-container w3-card w3-white w3-margin-bottom" id="home">
-            <h2><strong>About me</strong></h2>
-            I am a junior student in School of Computer Science and Technology at Xi'an Jiaotong
-            University.
-            <br>My research focuses on ...
-            <br>Also, Feel free to drop me an Email for any form of communication or collaboration!😊
+
+    <div class="w3-container w3-card w3-white w3-margin-bottom" id="publications">
+        <h2><strong>Publications</strong></h2>
+        <p>
+            <strong>Half-Xor: A Fully-Dynamic Sketch for Estimating the Number of Distinct Values in Big
+                Tables</strong>
             <br>
-            <strong><br>Email:&nbsp; <b><span style="background: #d6eef8;"><code>li01301218 [at] stu [dot] xjtu [dot] edu [dot] cn</code></span></b></strong>
-            <strong><br><a style="color: #0088cc" href="https://">Google Scholar</a> &emsp; <a style="color: #0088cc" href="https://github.com/Li-Jinsong">Github</a> &emsp; <a style="color: #0088cc" href="data/CV-EN.pdf">CV</a></strong>
-            <br><a style="color: #000000">( Last update: 2023.05.09 )</a>
-            <p></p>
-        </div>
-        
+            Pinghui Wang, Dongdong Xie, Junzhou Zhao, <strong>Jinsong Li</strong>, Zhicheng Li, Rundong Li, Yang Ren
+            <br>
+            <strong><a style="color: #FF0000">CCF A</a></strong> | <strong>Proceedings of the VLDB Endowment</strong> | <a style="color: #0088cc" href="https://">paper</a> | Accepted on 2023.05.15
 
-        <div class="w3-container w3-card w3-white w3-margin-bottom" id="education">
-            <h2><strong>Education</strong></h2>
-            <table width="100%" align="left" border="0" cellpadding="0">
-                <tbody></tbody>
-                <tr>
-                    <td style="padding:20px" width="15%"><img src="data/XJTU.png" width="80%"></td>
-                    <td width="80%">
-                        <b>Xi'an Jiaotong University</b>
-                        <br><span class="w3-text-dark-grey"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sep 2020 - </span><span class="w3-tag w3-dark-grey w3-round">Current</span>
-                        <br> B.E. in Computer Science and Technology
-                        <br> GPA: 94.3 (91.3 + 3) / 100 <strong><a style="color: #FF0000">[top 1%]</a></strong>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-
-
-        <div class="w3-container w3-card w3-white w3-margin-bottom" id="publications">
-            <h2><strong>Publications</strong></h2>
-            <p>
-                <strong>Half-Xor: A Fully-Dynamic Sketch for Estimating the Number of Distinct Values in Big
-                    Tables</strong>
-                <br>
-                Pinghui Wang, Dongdong Xie, Junzhou Zhao, <strong>Jinsong Li</strong>, Zhicheng Li, Rundong Li, Yang Ren
-                <br>
-                <strong><a style="color: #FF0000">CCF A</a></strong> |<strong>Proceedings of the VLDB Endowment</strong>| <a style="color: #0088cc" href="https://">paper</a> | Accepted on 2023.05.15
-
-            </p>
-        </div>
-
-
-        <div class="w3-container w3-card w3-white w3-margin-bottom" id="awards">
-            <h2><strong>Awards</strong></h2>
-            <h4><strong>Scholarships</strong></h4>
-            <p>
-                <li> <strong>2022, National Scholarship, <span class="w3-tag w3-light-grey w3-round">Chinese Ministry of Education</span></strong>
-            </p>
-            <p>
-                <li> <strong>2021, National Scholarship, <span class="w3-tag w3-light-grey w3-round">Chinese Ministry of Education</span></strong>
-            </p>
-            <hr>
-
-            <h4><strong>Contests</strong></h4>
-            <p>
-                <li> 2022, National 1st Prize, <span class="w3-tag w3-light-grey w3-round">Robocup</span>
-            </p>
-            <p>
-                <li> 2022, Shaanxi Province 1st Prize, <span class="w3-tag w3-light-grey w3-round">CUMCM</span>
-            </p>
-            <hr>
-
-            <h4><strong>Honors</strong></h4>
-            <p>
-                <li> 2022, Outstanding Student Cadre, <span class="w3-tag w3-light-grey w3-round">Xi'an Jiaotong University</span>
-            </p>
-            <p>
-                <li> 2021, Outstanding Student, <span class="w3-tag w3-light-grey w3-round">Xi'an Jiaotong University</span>
-            </p>
-        </div>
-
-
-        <div class="w3-container w3-card w3-white w3-margin-bottom" id="internships">
-            <h2><strong>Internships</strong></h2>
-            <div class="w3-container">
-                <h5>Baidu Artificial Intelligence Elite Class, <span class="w3-tag w3-light-grey w3-round">Baidu Inc.</span></h5>
-                <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sep 2021 - Dec 2022</h6>
-                <p>School-enterprise joint training program between Xi'an Jiaotong University and Baidu Inc.</p>
-                <br>
-            </div>
-        </div>
-
-
-        <div class="w3-container w3-card w3-white w3-margin-bottom" id="services">
-            <h2><strong>Services</strong></h2>
-            <div class="w3-container">
-                <h5>Class President of CS002, <span class="w3-tag w3-light-grey w3-round">Xi'an Jiaotong University</span></h5>
-                <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sep 2021 - Jun 2024</h6>
-                <br>
-            </div>
-        </div>
-
-
-        <script type='text/javascript' id='clustrmaps'
-            src='//cdn.clustrmaps.com/map_v2.js?cl=383838&w=455&t=tt&d=UjXhcvu-8_Cjo-HXyQHhyJzJuenCBLSD38-lms7aZHE&co=ffffff&cmo=5397ff&cmn=3ecc4d&ct=000000'></script>
+        </p>
     </div>
+
+
+    <div class="w3-container w3-card w3-white w3-margin-bottom" id="awards">
+        <h2><strong>Awards</strong></h2>
+        <h4><strong>Scholarships</strong></h4>
+        <p>
+            <li> <strong>2022, National Scholarship, <span class="w3-tag w3-light-grey w3-round">Chinese Ministry of Education</span></strong>
+        </p>
+        <p>
+            <li> <strong>2021, National Scholarship, <span class="w3-tag w3-light-grey w3-round">Chinese Ministry of Education</span></strong>
+        </p>
+        <hr>
+
+        <h4><strong>Contests</strong></h4>
+        <p>
+            <li> 2022, National 1st Prize, <span class="w3-tag w3-light-grey w3-round">Robocup</span>
+        </p>
+        <p>
+            <li> 2022, Shaanxi Province 1st Prize, <span class="w3-tag w3-light-grey w3-round">CUMCM</span>
+        </p>
+        <hr>
+
+        <h4><strong>Honors</strong></h4>
+        <p>
+            <li> 2022, Outstanding Student Cadre, <span class="w3-tag w3-light-grey w3-round">Xi'an Jiaotong University</span>
+        </p>
+        <p>
+            <li> 2021, Outstanding Student, <span class="w3-tag w3-light-grey w3-round">Xi'an Jiaotong University</span>
+        </p>
+    </div>
+
+
+    <div class="w3-container w3-card w3-white w3-margin-bottom" id="internships">
+        <h2><strong>Internships</strong></h2>
+        <div class="w3-container">
+            <h5>Baidu Artificial Intelligence Elite Class, <span class="w3-tag w3-light-grey w3-round">Baidu Inc.</span></h5>
+            <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sep 2021 - Dec 2022</h6>
+            <p>School-enterprise joint training program between Xi'an Jiaotong University and Baidu Inc.</p>
+            <br>
+        </div>
+    </div>
+
+
+    <div class="w3-container w3-card w3-white w3-margin-bottom" id="services">
+        <h2><strong>Services</strong></h2>
+        <div class="w3-container">
+            <h5>Class President of CS002, <span class="w3-tag w3-light-grey w3-round">Xi'an Jiaotong University</span></h5>
+            <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Sep 2021 - Jun 2024</h6>
+            <br>
+        </div>
+    </div>
+
+
+    <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=383838&w=455&t=tt&d=UjXhcvu-8_Cjo-HXyQHhyJzJuenCBLSD38-lms7aZHE&co=ffffff&cmo=5397ff&cmn=3ecc4d&ct=000000'></script>
+    
+  </div>
+<!-- End page content -->
+</div>
+
+<script>
+  // Script to open and close sidebar
+  function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+      document.getElementById("myOverlay").style.display = "block";
+  }
+  
+  function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+      document.getElementById("myOverlay").style.display = "none";
+  }
+</script>
 
 </body>
-
 </html>
