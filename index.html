@@ -112,7 +112,8 @@
                   <br>
                   <i>arXiv Preprint, 2024</i> | 
                   <a style="color: #0088cc" href="https://arxiv.org/abs/2403.20330">Paper</a> | 
-                  <a style="color: #0088cc" href="https://mmstar-benchmark.github.io/">Project Page</a> 
+                  <a style="color: #0088cc" href="https://mmstar-benchmark.github.io/">Project Page</a> |
+                  <span class='show_paper_citations' data='4yD2aTkAAAAJ:ufrVoPGSRksC'></span>
                 </td>
               </tr>
               <tr>
@@ -229,6 +230,20 @@
     
     <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=000000&w=300&t=tt&d=UjXhcvu-8_Cjo-HXyQHhyJzJuenCBLSD38-lms7aZHE&co=f1f1f1&ct=000000&cmo=3273f6&cmn=3acc3a"></script>
     
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script>
+        window.onload = function () {
+            var gsDataBaseUrl = 'https://raw.githubusercontent.com/Li-Jinsong/Li-Jinsong.github.io'
+            $.getJSON(gsDataBaseUrl + "google-scholar-stats/gs_data.json", function (data) {  
+                var citationEles = document.getElementsByClassName('show_paper_citations')
+                Array.prototype.forEach.call(citationEles, element => {
+                    var paperId = element.getAttribute('data')
+                    var numCitations = data['publications'][paperId]['num_citations']
+                    element.innerHTML = numCitations;
+                });
+            });
+        }
+    </script> -->
   </div>
 </div>
   
