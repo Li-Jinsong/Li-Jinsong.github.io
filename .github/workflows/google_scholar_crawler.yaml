@@ -1,14 +1,8 @@
 name: Get Citation Data
 
-on:
-  label:
-    types:
-      - created
-  push:
-    branches:
-      - main
-  page_build: 
-  schedule:
+on: 
+ page_build: 
+ schedule:
   - cron:  '0 8 * * *'
 
 jobs:
