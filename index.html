@@ -103,7 +103,7 @@
                   <i>arXiv Preprint, 2024</i> | 
                   <a style="color: #0088cc" href="https://arxiv.org/abs/2406.04325">Paper</a> | 
                   <a style="color: #0088cc" href="https://sharegpt4video.github.io/">Project Page</a> | 
-                  <span class='show_paper_citations' data='4yD2aTkAAAAJ:LkGwnXOMwfcC'></span>
+                  <img src="https://img.shields.io/endpoint?logo=Google%20Scholar&url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FLi-Jinsong%2Fli-jinsong.github.io@google-scholar-stats%2F4yD2aTkAAAAJ:LkGwnXOMwfcC_shieldsio.json&labelColor=ffffff&color=5383ec&style=plastic&label=Citations">
                 </td>
             </tr>
             <tr>
@@ -116,7 +116,7 @@
                 <i>arXiv Preprint, 2024</i> | 
                 <a style="color: #0088cc" href="https://arxiv.org/abs/2403.20330">Paper</a> | 
                 <a style="color: #0088cc" href="https://mmstar-benchmark.github.io/">Project Page</a> |
-                <span class='show_paper_citations' data='4yD2aTkAAAAJ:ufrVoPGSRksC'></span>
+                <img src="https://img.shields.io/endpoint?logo=Google%20Scholar&url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FLi-Jinsong%2Fli-jinsong.github.io@google-scholar-stats%2F4yD2aTkAAAAJ:ufrVoPGSRksC_shieldsio.json&labelColor=ffffff&color=5383ec&style=plastic&label=Citations">
               </td>
             </tr>
             <tr>
@@ -129,7 +129,7 @@
                 <i>arXiv Preprint, 2023</i> | 
                 <a style="color: #0088cc" href="https://arxiv.org/abs/2311.12793">Paper</a> | 
                 <a style="color: #0088cc" href="https://sharegpt4v.github.io/">Project Page</a> | 
-                <span class='show_paper_citations' data='4yD2aTkAAAAJ:qjMakFHDy7sC'></span>
+                <img src="https://img.shields.io/endpoint?logo=Google%20Scholar&url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FLi-Jinsong%2Fli-jinsong.github.io@google-scholar-stats%2F4yD2aTkAAAAJ:qjMakFHDy7sC_shieldsio.json&labelColor=ffffff&color=5383ec&style=plastic&label=Citations">
               </td>
             </tr>
           </tbody>
@@ -215,22 +215,6 @@
     </div>
     
     <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=000000&w=300&t=tt&d=UjXhcvu-8_Cjo-HXyQHhyJzJuenCBLSD38-lms7aZHE&co=f1f1f1&ct=000000&cmo=3273f6&cmn=3acc3a"></script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-    <script>
-      window.onload = function () {
-          var gsDataBaseUrl = 'https://raw.githubusercontent.com/li-jinsong/li-jinsong.github.io/'
-          $.getJSON(gsDataBaseUrl + "google-scholar-stats/gs_data.json", function (data) {  
-              var citationEles = document.getElementsByClassName('show_paper_citations')
-              Array.prototype.forEach.call(citationEles, element => {
-                  var paperId = element.getAttribute('data')
-                  var numCitations = data['publications'][paperId]['num_citations']
-                  var shieldUrl = "https://img.shields.io/badge/Citations-" + numCitations + "-blue.svg?colorA=ffffff&colorB=5383ec&style=plastic"
-                  element.innerHTML = "<img src=\"" + shieldUrl + "\">"
-              });
-          });
-      }
-    </script>
 
   </div>
 </div>
