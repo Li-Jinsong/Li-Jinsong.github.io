@@ -42,12 +42,10 @@ class RobustGoogleScholarScraper:
     """
     A robust scraper for Google Scholar profiles.
     """
-    # MODIFIED: Output directory is now the root directory '.'
     def __init__(self, scholar_id, output_dir='.'):
         self.scholar_id = scholar_id
         self.output_dir = output_dir
         self.is_github_actions = os.getenv('GITHUB_ACTIONS') == 'true'
-        # MODIFIED: Path points to the root
         self.main_json_path = os.path.join(self.output_dir, 'gs_data.json')
         self._setup_scholarly()
 
@@ -109,6 +107,13 @@ class RobustGoogleScholarScraper:
             print("Searching for author by ID...")
             author = scholarly.search_author_id(self.scholar_id)
 
+            # --- KEY FIX STARTS HERE ---
+            # Check if the author object is None, which indicates a search failure.
+            if not author:
+                # This is not a code error, but a scraping failure. Raise an exception to trigger the fallback logic.
+                raise Exception("Failed to retrieve author profile. The search returned None.")
+            # --- KEY FIX ENDS HERE ---
+
             print("Filling author details...")
             max_attempts = 3
             for attempt in range(max_attempts):
@@ -126,7 +131,6 @@ class RobustGoogleScholarScraper:
             author['updated'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
             author['publications'] = {p['author_pub_id']: p for p in author['publications']}
 
-            # This is no longer needed as we save to the root, but it is harmless.
             os.makedirs(self.output_dir, exist_ok=True)
             print(f"Saving main data to {self.main_json_path}")
             with open(self.main_json_path, 'w') as f:
