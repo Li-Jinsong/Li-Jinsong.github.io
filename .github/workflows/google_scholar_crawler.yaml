@@ -15,10 +15,7 @@ on:
 jobs:
   scrape-and-update:
     runs-on: ubuntu-latest
-    # Set a timeout for the entire job
     timeout-minutes: 90
-
-    # Grant permissions for writing to the repository
     permissions:
       contents: write
 
@@ -30,7 +27,7 @@ jobs:
       uses: actions/setup-python@v4
       with:
         python-version: '3.9'
-        cache: 'pip' # Caches pip dependencies
+        cache: 'pip'
 
     - name: Install dependencies
       run: |
@@ -40,12 +37,9 @@ jobs:
     - name: Run Scraper
       id: scrape
       env:
-        # Use the secret for the Google Scholar ID
         GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID }}
-        # Ensure Python output is not buffered
         PYTHONUNBUFFERED: "1"
       run: |
-        # Retry logic: attempt to run the script up to 3 times
         for i in 1 2 3; do
           echo "Attempt $i..."
           python google_scholar_crawler/main.py && exit 0
@@ -62,17 +56,14 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
 
-    - name: Commit and Push Changes
+    - name: Force Commit and Push Changes
       run: |
-        # Check if there are any changes in the results directory
-        if ! git diff --quiet --exit-code -- results/; then
-          echo "Data has changed. Committing and pushing..."
-          # Create or switch to the google-scholar-stats branch
-          git checkout -B google-scholar-stats
-          git add results/
-          git commit -m "Update Google Scholar citation data"
-          # Use --force to overwrite the branch with the latest data
-          git push origin google-scholar-stats --force
-        else
-          echo "No changes in citation data. Nothing to commit."
-        fi
+        echo "Committing and pushing data regardless of changes..."
+        # Create or switch to the google-scholar-stats branch
+        git checkout -B google-scholar-stats
+        # Add all generated files from the results directory
+        git add results/
+        # Create a commit with a timestamp to ensure it's always unique
+        git commit -m "Update Google Scholar data - $(date -u)"
+        # Force push to the branch to overwrite its history with the new commit
+        git push origin google-scholar-stats --force
