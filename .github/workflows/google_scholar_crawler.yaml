@@ -1,30 +1,78 @@
-name: Get Citation Data
+name: Update Google Scholar Citations
 
-on: 
- page_build: 
- schedule:
-  - cron:  '0 8 * * *'
+on:
+  schedule:
+    # Runs at 8:00 AM UTC every day
+    - cron: '0 8 * * *'
+  workflow_dispatch: # Allows manual triggering from the Actions tab
+  push:
+    branches:
+      - main # Or your default branch
+    paths:
+      - '.github/workflows/google_scholar_crawler.yaml'
+      - 'google_scholar_crawler/**'
 
 jobs:
-  build:
+  scrape-and-update:
     runs-on: ubuntu-latest
+    # Set a timeout for the entire job
+    timeout-minutes: 90
+
+    # Grant permissions for writing to the repository
+    permissions:
+      contents: write
+
     steps:
-    - uses: actions/checkout@v2
-    - name: Install Reqs
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        cache: 'pip' # Caches pip dependencies
+
+    - name: Install dependencies
       run: |
-        sudo apt-get install python3-setuptools
-    - name: Run
-      run: |
-        cd ./google_scholar_crawler
-        pip3 install -r requirements.txt
-        python3 main.py
-        cd ./results
-        git init
-        git config --local user.email "lijinsong0130@gmail.com"
-        git config --local user.name "Li-Jinsong"
-        export remote_repo="https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git"
-        git add *.json
-        git commit -m "Updated Citation Data"
-        git push "${remote_repo}" HEAD:google-scholar-stats --force
-      env: 
+        python -m pip install --upgrade pip
+        pip install -r google_scholar_crawler/requirements.txt
+
+    - name: Run Scraper
+      id: scrape
+      env:
+        # Use the secret for the Google Scholar ID
         GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID }}
+        # Ensure Python output is not buffered
+        PYTHONUNBUFFERED: "1"
+      run: |
+        # Retry logic: attempt to run the script up to 3 times
+        for i in 1 2 3; do
+          echo "Attempt $i..."
+          python google_scholar_crawler/main.py && exit 0
+          if [ $i -lt 3 ]; then
+            echo "Script failed. Retrying in 2 minutes..."
+            sleep 120
+          fi
+        done
+        echo "All scraping attempts failed."
+        exit 1
+
+    - name: Configure Git
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+
+    - name: Commit and Push Changes
+      run: |
+        # Check if there are any changes in the results directory
+        if ! git diff --quiet --exit-code -- results/; then
+          echo "Data has changed. Committing and pushing..."
+          # Create or switch to the google-scholar-stats branch
+          git checkout -B google-scholar-stats
+          git add results/
+          git commit -m "Update Google Scholar citation data"
+          # Use --force to overwrite the branch with the latest data
+          git push origin google-scholar-stats --force
+        else
+          echo "No changes in citation data. Nothing to commit."
+        fi
