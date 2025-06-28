@@ -13,15 +13,17 @@ on:
       - 'google_scholar_crawler/**'
 
 jobs:
-  scrape-and-update:
+  scrape-and-deploy:
     runs-on: ubuntu-latest
     timeout-minutes: 90
     permissions:
       contents: write
 
     steps:
-    - name: Checkout repository
+    - name: Checkout main branch code
       uses: actions/checkout@v4
+      with:
+        ref: 'main'
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -40,30 +42,22 @@ jobs:
         GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID }}
         PYTHONUNBUFFERED: "1"
       run: |
-        for i in 1 2 3; do
-          echo "Attempt $i..."
-          python google_scholar_crawler/main.py && exit 0
-          if [ $i -lt 3 ]; then
-            echo "Script failed. Retrying in 2 minutes..."
-            sleep 120
-          fi
-        done
-        echo "All scraping attempts failed."
-        exit 1
+        # The scraper script will now create .json files in the root directory
+        python google_scholar_crawler/main.py
 
-    - name: Configure Git
+    - name: Deploy data to orphan branch
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
 
-    - name: Force Commit and Push Changes
-      run: |
-        echo "Committing and pushing data regardless of changes..."
-        # Create or switch to the google-scholar-stats branch
-        git checkout -B google-scholar-stats
-        # Add all generated files from the results directory
-        git add results/
-        # Create a commit with a timestamp to ensure it's always unique
-        git commit -m "Update Google Scholar data - $(date -u)"
-        # Force push to the branch to overwrite its history with the new commit
+        git checkout --orphan google-scholar-stats
+        git rm -rf . || exit 0
+
+        # MODIFIED: Add all .json files from the root directory.
+        # Use 'git add -f' to force add them, just in case.
+        git add -f ./*.json
+
+        git commit -m "Deploy latest citation data at $(date -u)"
+        
+        echo "Pushing data-only branch to repository..."
         git push origin google-scholar-stats --force

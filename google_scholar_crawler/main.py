@@ -3,7 +3,7 @@
 Robust Google Scholar Citation Scraper using the scholarly library.
 This script scrapes citation data from a Google Scholar profile,
 handles errors gracefully, uses proxies in CI environments,
-and saves the data in a structured JSON format.
+and saves the data directly to the project root.
 """
 
 import os
@@ -42,10 +42,12 @@ class RobustGoogleScholarScraper:
     """
     A robust scraper for Google Scholar profiles.
     """
-    def __init__(self, scholar_id, output_dir='results'):
+    # MODIFIED: Output directory is now the root directory '.'
+    def __init__(self, scholar_id, output_dir='.'):
         self.scholar_id = scholar_id
         self.output_dir = output_dir
         self.is_github_actions = os.getenv('GITHUB_ACTIONS') == 'true'
+        # MODIFIED: Path points to the root
         self.main_json_path = os.path.join(self.output_dir, 'gs_data.json')
         self._setup_scholarly()
 
@@ -57,7 +59,6 @@ class RobustGoogleScholarScraper:
         if self.is_github_actions:
             print("Running in GitHub Actions. Setting up proxy.")
             pg = ProxyGenerator()
-            # Use free proxies, which is essential for CI environments
             success = pg.FreeProxies()
             if success:
                 scholarly.use_proxy(pg)
@@ -80,7 +81,6 @@ class RobustGoogleScholarScraper:
     def _should_skip_scraping(self):
         """
         Determines if scraping should be skipped based on the last update time.
-        Skips if data is less than 7 days old.
         """
         existing_data = self._load_existing_data()
         if not existing_data or 'updated' not in existing_data:
@@ -92,11 +92,10 @@ class RobustGoogleScholarScraper:
                 print("Skipping scrape: Existing data is less than 7 days old.")
                 return True
         except (ValueError, TypeError):
-             # If date format is wrong, proceed to scrape
             return False
         return False
 
-    @timeout(3600) # 1-hour timeout for the entire scraping process
+    @timeout(3600)
     def scrape(self):
         """
         Main method to perform the scraping operation.
@@ -111,7 +110,6 @@ class RobustGoogleScholarScraper:
             author = scholarly.search_author_id(self.scholar_id)
 
             print("Filling author details...")
-            # Use a retry mechanism for filling author details
             max_attempts = 3
             for attempt in range(max_attempts):
                 try:
@@ -121,15 +119,14 @@ class RobustGoogleScholarScraper:
                 except Exception as e:
                     print(f"Attempt {attempt + 1} to fill author failed: {e}")
                     if attempt < max_attempts - 1:
-                        time.sleep(10 * (attempt + 1)) # Exponential backoff
+                        time.sleep(10 * (attempt + 1))
                     else:
-                        raise e # Re-raise the last exception
+                        raise e
 
             author['updated'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-
-            # IMPORTANT: Preserve the original data structure
             author['publications'] = {p['author_pub_id']: p for p in author['publications']}
 
+            # This is no longer needed as we save to the root, but it is harmless.
             os.makedirs(self.output_dir, exist_ok=True)
             print(f"Saving main data to {self.main_json_path}")
             with open(self.main_json_path, 'w') as f:
