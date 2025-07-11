@@ -1,0 +1,140 @@
+{
+  "container_type": "Author",
+  "filled": [
+    "basics",
+    "publications",
+    "indices",
+    "counts"
+  ],
+  "scholar_id": "4yD2aTkAAAAJ",
+  "source": "AUTHOR_PROFILE_PAGE",
+  "name": "Jinsong Li",
+  "url_picture": "https://scholar.googleusercontent.com/citations?view_op=view_photo&user=4yD2aTkAAAAJ&citpid=14",
+  "affiliation": "MMLab, The Chinese University of Hong Kong",
+  "organization": 3220904064098251966,
+  "interests": [
+    "Multi-modal Learning",
+    "Vision Language Models"
+  ],
+  "email_domain": "@ie.cuhk.edu.hk",
+  "homepage": "https://li-jinsong.github.io/",
+  "citedby": 1324,
+  "publications": {
+    "4yD2aTkAAAAJ:qjMakFHDy7sC": {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "ShareGPT4V: Improving Large Multi-Modal Models with Better Captions",
+        "pub_year": "2024",
+        "citation": "✔️ ECCV 2024, 2024"
+      },
+      "filled": false,
+      "author_pub_id": "4yD2aTkAAAAJ:qjMakFHDy7sC",
+      "num_citations": 754,
+      "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5702280196507902277,15449078517261202135",
+      "cites_id": [
+        "5702280196507902277",
+        "15449078517261202135"
+      ]
+    },
+    "4yD2aTkAAAAJ:ufrVoPGSRksC": {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "Are We on the Right Way for Evaluating Large Vision-Language Models?",
+        "pub_year": "2024",
+        "citation": "✔️ NeurIPS 2024, 2024"
+      },
+      "filled": false,
+      "author_pub_id": "4yD2aTkAAAAJ:ufrVoPGSRksC",
+      "num_citations": 357,
+      "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4459148544604166048",
+      "cites_id": [
+        "4459148544604166048"
+      ]
+    },
+    "4yD2aTkAAAAJ:LkGwnXOMwfcC": {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "ShareGPT4Video: Improving Video Understanding and Generation with Better Captions",
+        "pub_year": "2024",
+        "citation": "✔️ NeurIPS 2024 D&B, 2024"
+      },
+      "filled": false,
+      "author_pub_id": "4yD2aTkAAAAJ:LkGwnXOMwfcC",
+      "num_citations": 208,
+      "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=5437535431763980848",
+      "cites_id": [
+        "5437535431763980848"
+      ]
+    },
+    "4yD2aTkAAAAJ:WF5omc3nYNoC": {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "Half-Xor: A Fully-Dynamic Sketch for Estimating the Number of Distinct Values in Big Tables",
+        "pub_year": "2024",
+        "citation": "✔️ TKDE 2024, 2024"
+      },
+      "filled": false,
+      "author_pub_id": "4yD2aTkAAAAJ:WF5omc3nYNoC",
+      "num_citations": 3,
+      "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=583081110684035330",
+      "cites_id": [
+        "583081110684035330"
+      ]
+    },
+    "4yD2aTkAAAAJ:roLk4NBRz8UC": {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "Light-A-Video: Training-free Video Relighting via Progressive Light Fusion",
+        "pub_year": "2025",
+        "citation": "✔️ ICCV 2025, 2025"
+      },
+      "filled": false,
+      "author_pub_id": "4yD2aTkAAAAJ:roLk4NBRz8UC",
+      "num_citations": 2,
+      "citedby_url": "https://scholar.google.com/scholar?oi=bibs&hl=en&cites=4400798608623163119",
+      "cites_id": [
+        "4400798608623163119"
+      ]
+    },
+    "4yD2aTkAAAAJ:UebtZRa9Y70C": {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "ScaleCap: Inference-Time Scalable Image Captioning via Dual-Modality Debiasing",
+        "pub_year": "2025",
+        "citation": "arXiv preprint arXiv:2506.19848, 2025"
+      },
+      "filled": false,
+      "author_pub_id": "4yD2aTkAAAAJ:UebtZRa9Y70C",
+      "num_citations": 0
+    },
+    "4yD2aTkAAAAJ:Se3iqnhoufwC": {
+      "container_type": "Publication",
+      "source": "AUTHOR_PUBLICATION_ENTRY",
+      "bib": {
+        "title": "Towards Storage-Efficient Visual Document Retrieval: An Empirical Study on Reducing Patch-Level Embeddings",
+        "pub_year": "2025",
+        "citation": "✔️ ACL 2025 findings, 2025"
+      },
+      "filled": false,
+      "author_pub_id": "4yD2aTkAAAAJ:Se3iqnhoufwC",
+      "num_citations": 0
+    }
+  },
+  "citedby5y": 1324,
+  "hindex": 3,
+  "hindex5y": 3,
+  "i10index": 3,
+  "i10index5y": 3,
+  "cites_per_year": {
+    "2023": 6,
+    "2024": 605,
+    "2025": 713
+  },
+  "updated": "2025-07-11 08:21:34"
+}
